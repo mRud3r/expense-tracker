@@ -12,7 +12,7 @@ function App() {
       </div>
     </header>
     <main className="container mx-auto w-full">
-      <BudgetCard name='name' amount={100} max={1000} />
+      <BudgetCard name='name' amount={900} max={1000} />
     </main>
     
     </>
