@@ -11,8 +11,8 @@ function App() {
         <button className="px-4 py-2 rounded-sm border border-slate-100 font-medium hover:bg-slate-700">Add Expense</button>
       </div>
     </header>
-    <main className="container mx-auto w-full">
-      <BudgetCard name='name' amount={900} max={1000} />
+    <main className="container mx-auto w-full p-4">
+      <BudgetCard name='name' amount={2000} max={1000} />
     </main>
     
     </>

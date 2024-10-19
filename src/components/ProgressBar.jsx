@@ -8,7 +8,7 @@ export default function ProgressBar({ progress }) {
 	};
 
 	return (
-		<div className="w-full bg-slate-600 rounded-full h-4">
+		<div className="w-full bg-slate-600 rounded-full h-4 overflow-hidden">
 			<div
 				className={`${getColor()} h-4 rounded-full transition-all duration-300`}
 				style={{ width: `${progress}%` }}></div>
