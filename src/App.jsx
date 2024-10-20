@@ -1,3 +1,4 @@
+import AddBudgetModal from "./components/AddBudgetModal"
 import BudgetCard from "./components/BudgetCard"
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <main className="container mx-auto w-full p-4">
       <BudgetCard name='name' amount={2000} max={1000} />
     </main>
+    <AddBudgetModal />
     
     </>
   )
