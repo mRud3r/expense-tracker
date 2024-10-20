@@ -1,9 +1,11 @@
 import { useState } from "react"
 import AddBudgetModal from "./components/AddBudgetModal"
 import BudgetCard from "./components/BudgetCard"
+import { useBudgets } from "./context/BudgetsContext";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const { budgets, expenses, getBudgetExpenses } = useBudgets();
 
   return (
     <>
@@ -15,7 +17,10 @@ function App() {
       </div>
     </header>
     <main className="container mx-auto w-full p-4">
-      <BudgetCard name='name' amount={2000} max={1000} />
+      {budgets.map(budget => {
+        const amount = getBudgetExpenses(budget.id).reduce((total, expense) => total + expense.amount, 0)
+       return  <BudgetCard key={budget.id} name={budget.name} amount={amount} max={budget.max} />
+})}
     </main>
     <AddBudgetModal showModal={showModal} setShowModal={setShowModal}/>
     
