@@ -47,7 +47,7 @@ export const BudgetsProvider = ({ children }) => {
 
 
 
-    return <BudgetsContext.Provider value={{}}>
+    return <BudgetsContext.Provider value={{addBudget}}>
         {children}
     </BudgetsContext.Provider>
 }

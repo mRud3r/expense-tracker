@@ -1,21 +1,23 @@
+import { useState } from "react"
 import AddBudgetModal from "./components/AddBudgetModal"
 import BudgetCard from "./components/BudgetCard"
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <>
     <header className="container mx-auto w-full flex justify-between items-center p-4">
       <h1 className="text-2xl font-bold">Finances</h1>
       <div className="flex gap-4">
-        <button className="px-4 py-2 bg-slate-100 text-slate-800 font-medium rounded-sm hover:bg-slate-200">Add Budget</button>
+        <button onClick={() => setShowModal(true)} className="px-4 py-2 bg-slate-100 text-slate-800 font-medium rounded-sm hover:bg-slate-200">Add Budget</button>
         <button className="px-4 py-2 rounded-sm border border-slate-100 font-medium hover:bg-slate-700">Add Expense</button>
       </div>
     </header>
     <main className="container mx-auto w-full p-4">
       <BudgetCard name='name' amount={2000} max={1000} />
     </main>
-    <AddBudgetModal />
+    <AddBudgetModal showModal={showModal} setShowModal={setShowModal}/>
     
     </>
   )
