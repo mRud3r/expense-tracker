@@ -1,15 +1,15 @@
 import { useContext, useRef } from "react";
-import { useBudgets } from "../context/BudgetsContext";
+import { UNCATEGORIZED_BUDGET_ID, useBudgets } from "../context/BudgetsContext";
 
 export default function AddExpenseModal({ showModal, setShowModal, defaultBudgetId }) {
 	const descriptionRef = useRef();
     const amountRef = useRef();
     const budgetIdRef = useRef();
-    const { addExpenses, budgets } = useBudgets()
+    const { addExpense, budgets } = useBudgets()
     function handleSubmit(e) {
         e.preventDefault()
         addExpense({
-            descriptionRef: descriptionRef.current.value,
+            description: descriptionRef.current.value,
             amount: parseFloat(amountRef.current.value),
             budgetId: budgetIdRef.current.value,
         })
@@ -53,6 +53,17 @@ export default function AddExpenseModal({ showModal, setShowModal, defaultBudget
                             ref={amountRef}
 							className="bg-slate-200 rounded p-2 text-slate-900"
 						/>
+					</div>
+					<div className="flex flex-col gap-2 w-full">
+						<label htmlFor="" className="font-semibold text-lg">
+							Budget
+						</label>
+						<select defaultValue={defaultBudgetId} ref={budgetIdRef} className="bg-slate-200 rounded p-2 text-slate-900">
+							<option id={UNCATEGORIZED_BUDGET_ID}>Uncategorized</option>
+							{budgets.map(budget => {
+								return <option key={budget.id} value={budget.id} >{budget.name}</option>
+							})}
+						</select>
 					</div>
 					<button type="submit" className="px-4 py-2 bg-slate-950 rounded">Add</button>
 				</form>
