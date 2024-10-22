@@ -33,23 +33,32 @@ export const BudgetsProvider = ({ children }) => {
     })
  }
 
- const deleteBudget = ({ id }) => {
+ const deleteBudget = (budgetId) => {
     setBudgets(prevBudgets => {
-        return prevBudgets.filter(budget => budget.id !== id)
-    })
+        return prevBudgets.filter(budget => budget.id !== budgetId);
+      });
+    
+      setExpenses(prevExpenses => {
+        return prevExpenses.map(expense => {
+          if (expense.budgetId === budgetId) {
+            return { ...expense, budgetId: UNCATEGORIZED_BUDGET_ID }; // Przeniesienie do 'Uncategorized'
+          }
+          return expense;
+        });
+      });
  }
 
- const deleteExpense = ({ id }) => {
+ const deleteExpense = (expenseId) => {
     setExpenses(prevExpenses => {
-        return prevExpenses.filter(expense => expense.id !== id)
-    })
+        return prevExpenses.filter(expense => expense.id !== expenseId);
+      });
  }
 
 
 
 
 
-    return <BudgetsContext.Provider value={{addBudget, budgets, expenses, getBudgetExpenses, addExpense}}>
+    return <BudgetsContext.Provider value={{addBudget, budgets, expenses, getBudgetExpenses, addExpense, deleteBudget, deleteExpense}}>
         {children}
     </BudgetsContext.Provider>
 }
