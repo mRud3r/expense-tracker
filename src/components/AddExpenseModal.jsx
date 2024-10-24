@@ -49,6 +49,7 @@ export default function AddExpenseModal({ showModal, setShowModal, defaultBudget
 						</label>
 						<input
 							type="number"
+							min={1}
                             required
                             ref={amountRef}
 							className="bg-slate-200 rounded p-2 text-slate-900"

@@ -22,11 +22,12 @@ export default function ViewExpensesModal({
 					<div>Expenses - {budget?.name}</div>
 					{budgetId !== UNCATEGORIZED_BUDGET_ID && (
 						<button
+						className="px-4 py-2 rounded-sm font-medium bg-red-400 hover:bg-red-600"
 							onClick={() => {
 								deleteBudget(budgetId);
 								setShowModal(false);
 							}}>
-							Delete
+							Delete Budget
 						</button>
 					)}
 					<button
@@ -38,11 +39,11 @@ export default function ViewExpensesModal({
 
 				<div>
 					{getBudgetExpenses(budgetId).map((expense) => (
-						<div key={expense.id} className="flex justify-between">
+						<div key={expense.id} className="flex justify-between items-center">
 							<div>{expense.description}</div>
 							<div>${expense.amount.toFixed(2)}</div>
-							<button onClick={() => deleteExpense(expense.id)}>
-								Delete Expense
+							<button className="text-xl text-red-400 p- hover:text-red-600" onClick={() => deleteExpense(expense.id)}>
+								X
 							</button>
 						</div>
 					))}

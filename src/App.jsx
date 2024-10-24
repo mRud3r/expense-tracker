@@ -44,7 +44,7 @@ function App() {
 					</button>
 				</div>
 			</header>
-			<main className="container mx-auto w-full p-4">
+			<main className="container mx-auto w-full p-4 grid md:grid-cols-2 xl:grid-cols-3 gap-4">
 				{budgets.map((budget) => {
 					const amount = getBudgetExpenses(budget.id).reduce(
 						(total, expense) => total + expense.amount,

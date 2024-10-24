@@ -47,6 +47,7 @@ export default function AddBudgetModal({ showModal, setShowModal }) {
 						</label>
 						<input
 							type="number"
+							min={1}
                             required
                             ref={maxRef}
 							className="bg-slate-200 rounded p-2 text-slate-900"

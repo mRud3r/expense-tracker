@@ -5,7 +5,7 @@ export default function BudgetCard({ name, amount, max, onAddExpense, hideButton
 
 
 	return (
-		<div className="bg-slate-900 p-4 rounded-md flex flex-col max-w-[400px] gap-8 shadow-lg ">
+		<div className="bg-slate-900 p-4 rounded-md flex flex-col w-full gap-8 shadow-lg ">
 			<div className="flex justify-between">
 				<div className="text-lg font-medium">{name}</div>
 				<div className="text-xl font-medium">
