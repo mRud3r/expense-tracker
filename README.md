@@ -17,4 +17,5 @@ https://mrud3r.github.io/expense-tracker/
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Screen Recording 2024-10-29 at 22 17 55-2](https://github.com/user-attachments/assets/66f920fa-8daf-48ac-894d-3b449c98e616)
+
